@@ -4,7 +4,7 @@
 default_version="9.0.108"
 
 # Perguntar a versão do UniFi Server, com valor padrão
-read -p "Enter the version of UniFi Server you want to install [default: ${default_version}]: " unifi_version
+read -p "Enter the version of UniFi Server you want to install [press Enter for 9.0.108]: " unifi_version
 unifi_version=${unifi_version:-$default_version}
 
 # Adicionar repositório do MongoDB
