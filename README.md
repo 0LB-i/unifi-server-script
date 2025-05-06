@@ -9,4 +9,4 @@ Automated script to install the UniFi Network Application on supported Linux sys
 Click the copy button and run the following command in your terminal:
 
 ```bash
-bash <(wget -qO- https://github.com/0LB-i/unifi-server-script/blob/main/install-unifi-server.sh)
+bash <(curl -s https://github.com/0LB-i/unifi-server-script/blob/main/install-unifi-server.sh)
