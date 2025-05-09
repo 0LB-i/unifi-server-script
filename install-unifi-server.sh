@@ -28,7 +28,7 @@ useradd ubnt
 # Iniciar e habilitar o serviço MongoDB
 systemctl start mongod.service
 systemctl enable mongod.service
-systemctl status mongod.service
+systemctl status mongod.service --no-pager
 
 # Baixar o UniFi Server na versão escolhida
 cd /opt
@@ -66,7 +66,7 @@ systemctl daemon-reexec
 systemctl daemon-reload
 systemctl enable unifi.service
 systemctl start unifi.service
-systemctl status unifi.service
+systemctl status unifi.service --no-pager
 
 # Limpar o arquivo zip
 rm -rf /opt/UniFi.unix.zip
