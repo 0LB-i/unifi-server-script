@@ -7,7 +7,6 @@ default_version="9.0.108"
 read -p "Enter the version of UniFi Server you want to install [press Enter for 9.0.108]: " unifi_version
 unifi_version=${unifi_version:-$default_version}
 
-# Adicionar repositório do MongoDB
 cat << 'EOF' > /etc/yum.repos.d/mongodb-org-8.0.repo
 [mongodb-org-8.0]
 name=MongoDB Repository
@@ -22,12 +21,10 @@ yum -y update
 yum install epel-release -y
 yum install mongodb-org java-17-openjdk-devel unzip wget -y
 
-# Criar usuário ubnt
 useradd ubnt
 
 # Iniciar e habilitar o serviço MongoDB
-systemctl start mongod.service
-systemctl enable mongod.service
+systemctl enable --now mongod.service
 systemctl status mongod.service --no-pager
 
 # Baixar o UniFi Server na versão escolhida
@@ -64,8 +61,7 @@ EOF
 # Habilitar e iniciar o serviço UniFi
 systemctl daemon-reexec
 systemctl daemon-reload
-systemctl enable unifi.service
-systemctl start unifi.service
+systemctl enable --now unifi.service
 systemctl status unifi.service --no-pager
 
 # Limpar o arquivo zip
